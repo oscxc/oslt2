@@ -1,0 +1,23 @@
+{
+  "name": "oslt2",
+  "version": "1.0.0",
+  "description": "2d平移动画模块第二种设计（基于监听变量）",
+  "main": "oslt2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oscxc/oslt2.git"
+  },
+  "keywords": [
+    "oslt",
+    "oslt2"
+  ],
+  "author": "七八个星天怪",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oscxc/oslt2/issues"
+  },
+  "homepage": "https://github.com/oscxc/oslt2#readme"
+}

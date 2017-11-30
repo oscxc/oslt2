@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>oslt2 demo</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+        #d{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 100px;
+            left: 100px;
+            background-color: brown;
+            border-radius:8px;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+    <script src="oslt2.js"></script>
+</head>
+<body>
+<div id="d">0</div>
+<input id="run" type="button" value="运行">
+<input id="stop" type="button" value="停止">
+
+<input id="change" type="button" value="变量改变">
+<input id="pause" type="button" value="变量停止">
+<input id="set0" type="button" value="变量置零">
+<script>
+    var obj = {
+        p : 0
+    }
+    var i;
+    function changeP() {
+        i = setInterval(function () {
+            obj.p++;
+            d.innerHTML = obj.p;
+        },10)
+    }
+
+    var d = document.getElementById('d');
+
+    var run = document.getElementById('run');
+    var stop = document.getElementById('stop');
+
+    var pause = document.getElementById('pause');
+    var reset = document.getElementById('reset');
+    var set0 = document.getElementById('set0');
+
+    var lt2 = new oslt2(d,[100,100],[400,400],obj,'p',200,500,function () {
+        console.log('end');
+    });
+
+    run.onclick = function () {
+        lt2.run(function (val,p) {
+            console.log(val,p);
+        });
+        changeP();
+    };
+    stop.onclick = function () {
+        lt2.stop();
+    };
+
+    change.onclick = changeP;
+    pause.onclick = function () {
+        clearInterval(i);
+    };
+    set0.onclick = function () {
+        d.innerHTML = obj.p = 0;
+    };
+
+</script>
+</body>
+</html>
